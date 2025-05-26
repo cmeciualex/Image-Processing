@@ -176,7 +176,7 @@ void Tests::imageTest() {
     testScalarMultiplicationAndAddition();
     testGetROI();
     testLoadSave();
-}///test clasa
+}
 
 void Tests::GammaCorrectionTest() {
     Image src(2, 2);
@@ -192,7 +192,7 @@ void Tests::GammaCorrectionTest() {
 
     gc.process(src, dst);
 
-    // Calcul manual al valorilor așteptate
+
     auto expected = [&](unsigned char input) -> unsigned char {
         float normalized = input / 255.0f;
         float corrected = std::pow(normalized, gammaValue);
@@ -208,7 +208,7 @@ void Tests::GammaCorrectionTest() {
     assert(dst.at(1, 1) == expected(255));
 
     std::cout << "testGammaCorrection passed\n";
-}///test clasa
+}
 
 void Tests::testBrightnessContrast() {
     Image src(2, 2);
@@ -270,7 +270,7 @@ void Tests::PointTests() {
     test_output_operator();
     test_input_operator();
     std::cout<<"testPoint passed\n";
-}///test clasa
+}
 
 void Tests::test_rectangle_constructor_with_coordinates() {
     Rectangle rect(10, 20, 30, 40);
@@ -364,7 +364,7 @@ void Tests::RectangleTests() {
     test_rectangle_subtraction_operator_computes_difference();
     test_rectangle_intersection_operator_returns_common_area();
     std::cout<<"rectangleTests passed\n";
-}///test clasa
+}
 
 void Tests::test_drawing_draw_circle_colors_inside_radius() {
     Image img(100, 100);
@@ -438,7 +438,7 @@ void Tests::DrawingTests() {
     test_drawing_draw_line_horizontal_colors_correct_pixels();
     test_drawing_draw_line_vertical_colors_correct_pixels();
     std::cout<<"drawingTests passed\n";
-}///Test modul
+}
 
 void Tests::test_KernelConstructor_WithOddDimensions_ShouldSucceed() {
     std::vector<std::vector<float>> kernelData = {
@@ -494,7 +494,7 @@ void Tests::KernelTests() {
     test_KernelConstructor_WithOddDimensions_ShouldSucceed();
     test_KernelConstructor_WithEvenDimensions_ShouldThrow();
     std::cout<<"KernelTests passed\n";
-}///test clasa
+}
 
 void Tests::test_ImageConvolution_ProcessThrowsOnDimensionMismatch() {
     IdentityKernel kernel;
@@ -547,7 +547,7 @@ void Tests::ConvolutionTests() {
     test_ImageConvolution_ProcessThrowsOnDimensionMismatch();
     test_ImageConvolution_ProcessMeanBlurKernel_SmoothsImage();
     std::cout<<"ConvolutionTests passed\n";
-}///test clasa
+}
 
 void Tests:: runAll() {
     imageTest();
